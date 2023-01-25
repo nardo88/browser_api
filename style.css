@@ -1,0 +1,25 @@
+#source{
+    width: 100px;
+    margin: 0 1rem;
+    border: 1px solid black;
+}
+
+#destination{
+    width: 100px;
+    height: 150px;
+    margin: 0 1rem;
+    border: 1px solid black;
+}
+
+.copy{
+    width: 200px;
+    font-size: 16px;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.active{
+    background-color: #158a15;
+    color: white;
+}
