@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul class="sidebar__list">
+                <li class="list__item"><a href="/batery.html" class="link">BatteryManager</a></li>
+                <li class="list__item"><a href="/clipboard.html" class="link">Clipboard</a></li>
+                <li class="list__item"><a href="./mediaDevices.html" class="link">MediaDevices</a></li>
+                <li class="list__item"><a href="./DOMParser.html" class="link">DOMParser</a></li>
+                <li class="list__item"><a href="./speechSynthesis.html" class="link">speechSynthesis</a></li>
+
+            </ul>
+        </div>
+        <div class="content">
+            <div class="clipboard">
+                <div class="clipboard__item">
+                    <h3 class="title">clipboard.read()</h3>
+                    <p class="clipboard__description">Метод read() интерфейса буфера обмена запрашивает копию
+                        содержимого буфера обмена, доставляя данные в возвращенный промис, когда промис разрешен. В
+                        отличие от readText()</p>
+                    <img id="destination" />
+                    <p class="clipboard__error"></p>
+                </div>
+                <div class="clipboard__item">
+                    <h3 class="title">clipboard.readText()</h3>
+                    <p class="clipboard__description">Метод readText() возвращает Promise,
+                        который разрешается копией текстового содержимого системного буфера обмена.</p>
+                    <p class="test-description">Some text</p>
+                    <button class="btn">Вставить текст из буфера</button>
+                </div>
+                <div class="clipboard__item">
+                    <h3 class="title">clipboard.write()</h3>
+                    <p class="clipboard__description">Метод write() буфера обмена записывает произвольные данные,
+                        например
+                        изображения, в буфер обмена. Это можно использовать для реализации
+                        функций вырезания и копирования.</p>
+                        <img class="clipboard__img" src="./react.jpg" alt="">
+                        <button class="btn copy-image">Копировать изображение из перовй секйии</button>
+                </div>
+                <div class="clipboard__item">
+                    <h3 class="title">clipboard.writeText()</h3>
+                    <p class="clipboard__description">Метод writeText() помещает в буфер текст, который метод получит входным аргументом.</p>
+                    <p class="clipboard__copy">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Имени коварных
+                        страну грамматики ручеек!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="./сlipboard.js"></script>
+
+</body>
+
+</html>

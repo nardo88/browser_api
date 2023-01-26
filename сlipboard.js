@@ -12,10 +12,12 @@
  * Этот метод также может возвращать текст.
  */
 const destinationImage = document.querySelector('#destination')
+const error = document.querySelector('.clipboard__error')
 
 destinationImage.addEventListener('click', pasteImage);
 
 async function pasteImage() {
+    error.textContent = ''
     try {
         const permission = await navigator.permissions.query({
             name: 'clipboard-read'
@@ -24,11 +26,11 @@ async function pasteImage() {
             throw new Error('Not allowed to read clipboard.');
         }
         const clipboardContents = await navigator.clipboard.read();
-        console.log('clipboardContents: ', clipboardContents);
 
         for (const item of clipboardContents) {
 
             if (!item.types.includes('image/png')) {
+                error.textContent = 'В буфере обменя нет изображения'
                 throw new Error('Clipboard contains non-image data.');
             }
 
@@ -48,14 +50,14 @@ async function pasteImage() {
  * Метод readText() интерфейса буфера обмена возвращает обещание, 
  * которое разрешается копией текстового содержимого системного буфера обмена.
  */
-const description = document.querySelector('.description')
+const description = document.querySelector('.test-description')
 const btn = document.querySelector('.btn')
 
 btn.addEventListener('click', () => {
     navigator.clipboard.readText()
-    .then((data) => {
-        description.textContent = data
-    })
+        .then((data) => {
+            description.textContent = data
+        })
 
 });
 
@@ -69,13 +71,49 @@ btn.addEventListener('click', () => {
  */
 
 
+// берём любое изображение
+const img = document.querySelector('.clipboard__img');
+const copyImage = document.querySelector('.copy-image');
+
+// создаём <canvas> того же размера
+const canvas = document.createElement('canvas');
+canvas.width = img.clientWidth;
+canvas.height = img.clientHeight;
+
+const context = canvas.getContext('2d');
+
+// копируем изображение в  canvas (метод позволяет вырезать часть изображения)
+context.drawImage(img, 0, 0);
+// мы можем вращать изображение при помощи context.rotate() и делать множество других преобразований
+
+// toBlob является асинхронной операцией, для которой callback-функция вызывается при завершении
+copyImage.addEventListener('click', () => {
+    const canvas = document.createElement('canvas')
+    canvas.width = img.naturalWidth
+    canvas.height = img.naturalHeight
+    const context = canvas.getContext('2d')
+    context.drawImage(img, 0, 0)
+    canvas.toBlob(blob => {
+        navigator.clipboard.write([
+            new ClipboardItem({
+                [blob.type]: blob
+            })
+        ]).then(() => {
+            console.log('Copied')
+        })
+    })
+
+})
+
+
+
 // ============================== writeText ===================
 
 
 
-document.querySelector('.copy').addEventListener('click', function(){
+document.querySelector('.clipboard__copy').addEventListener('click', function () {
     this.classList.add('active')
-  
+
     navigator.clipboard.writeText(this.textContent)
 
     setTimeout(() => {

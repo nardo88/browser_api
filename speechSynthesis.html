@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul class="sidebar__list">
+                <li class="list__item"><a href="/batery.html" class="link">BatteryManager</a></li>
+                <li class="list__item"><a href="/clipboard.html" class="link">Clipboard</a></li>
+                <li class="list__item"><a href="./mediaDevices.html" class="link">MediaDevices</a></li>
+                <li class="list__item"><a href="./DOMParser.html" class="link">DOMParser</a></li>
+                <li class="list__item"><a href="./speechSynthesis.html" class="link">speechSynthesis</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3>SpeechSynthesisUtterance</h3>
+            <p><b>SpeechSynthesisUtterance</b> - создает объект с текстом, который нужно произнести</p>
+            <div class="example">
+                <div class="speech__Wrapper">
+                    <input type="text" class="speech__input">
+                    <button class="btn">Голос</button>
+                </div>
+
+                <div class="speech__Wrapper">
+                    <label class="speed speech__control">
+                        <span class="label">Скорость (работает RU) </span>
+                        <input type="range" min="1" max="8" step="0.25" class="input speed__input">
+                        <span class="speed__valie"></span>
+                    </label>
+
+                    <label class="loud speech__control">
+                        <span class="label">Громкость </span>
+                        <input type="range" min="0" max="1" step="0.1" class="input loud__input">
+                        <span class="loud__valie"></span>
+                    </label>
+
+                    <label class="loud speech__control">
+                        <span class="label">Высота тона </span>
+                        <input type="range" min="0" max="1" step="0.1" class="input step__input">
+                        <span class="step__value"></span>
+                    </label>
+                </div>
+
+
+             
+                <div class="speech__Wrapper voices">
+                    <h3>Варианты голосов</h3>
+                   
+                </div>
+                <div class="speech__Wrapper voices">
+                    <h3>События</h3>
+                    <img class="speech__img" src="./speack.jpg" alt="">
+                   
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="./speechSynthesis.js"></script>
+
+</html>
